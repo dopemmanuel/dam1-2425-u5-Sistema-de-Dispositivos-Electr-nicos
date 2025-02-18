@@ -1,5 +1,10 @@
 package com.dam1.eju5_1.src
 
+import com.dam1.eju5_1.src.clases.Telefono
+import com.dam1.eju5_1.src.clases.Lavadora
+import com.dam1.eju5_1.src.clases.Coche
+
+
 /**
 Ejercicio 3: Sistema de Dispositivos Electrónicos
 Crea tres interfaces:
@@ -22,36 +27,22 @@ Comprender cómo se puede usar una interfaz para imponer un contrato que varias 
 Familiarizarse con el concepto de separación de la interfaz y la implementación.
  * */
 
-interface EncendidoApagado{
-    fun encender(): String
-    fun apagar(): String
-}
-interface DispositivoElectronico {
-    fun reiniciar(): String
-}
-interface Vehiculo {
-    var motorEncendido: Boolean
-    var kmHora: Int
 
-    fun acelerar(velocidad: Int)
-    fun frenar(velocidad: Int)
-}
+fun main() {
+    val telefono = Telefono()
+    val lavadora = Lavadora()
+    val coche = Coche()
 
-class Telefono: EncendidoApagado, DispositivoElectronico {
-    override fun encender(): String {
-        return "encendiendo..."
-    }
-    override fun apagar(): String {
-        return "Apagando..."
-    }
-    override fun reiniciar(): String {
-        return "Reiniciando..."
-    }
-}
-class Lavadora: EncendidoApagado, DispositivoElectronico {}
-class Coche: EncendidoApagado, DispositivoElectronico {}
+    println(telefono.encender())
+    println(telefono.reiniciar())
+    println(telefono.apagar())
 
+    println(lavadora.encender())
+    println(lavadora.reiniciar())
+    println(lavadora.apagar())
 
-fun main(){
-    println("PUG")
+    println(coche.encender())
+    coche.acelerar(50)
+    coche.frenar(20)
+    println(coche.apagar())
 }
